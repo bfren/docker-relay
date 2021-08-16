@@ -5,13 +5,12 @@ export BF_E=`basename ${0}`
 
 
 #======================================================================================================================
-# Add environment variables.
+# Generate Clamsmtp configuration file.
 #======================================================================================================================
 
-bf-env "RELAY_POSTFIX_MASTER_CONFIG" "/etc/postfix/master.cf"
-bf-env "RELAY_POSTFIX_MAIN_CONFIG" "/etc/postfix/main.cf"
-bf-env "RELAY_POSTFIX_MAP" "/etc/postfix/virtual"
+# ensure all required environment variables are set
 
-bf-env "RELAY_CLAMSMTP_CONFIG" "/etc/clamsmtp/clamsmtp.conf"
-
-bf-env "RELAY_GROSS_CONFIG" "/etc/gross/grossd.conf"
+# generate config from the templates
+bf-debug "Generating ${RELAY_CLAMSMTP_CONFIG}."
+esh -o ${RELAY_CLAMSMTP_CONFIG} \
+    ${BF_TEMPLATES}/clamsmtp.conf.esh

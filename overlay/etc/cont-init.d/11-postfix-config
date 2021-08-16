@@ -5,14 +5,18 @@ export BF_E=`basename ${0}`
 
 
 #======================================================================================================================
-# Generate Postfix configuration file.
+# Generate Postfix configuration files.
 #======================================================================================================================
 
 # ensure all required environment variables are set
 [[ -z "${RELAY_PRIMARY_DOMAIN-}" ]] && bf-error "RELAY_PRIMARY_DOMAIN must be set."
 [[ -z "${RELAY_HOSTNAME-}" ]] && bf-error "RELAY_HOSTNAME must be set."
 
-# generate config from the template
-bf-debug "Generating ${RELAY_POSTFIX_CONFIG}."
+# generate config from the templates
+bf-debug "Generating ${RELAY_POSTFIX_MASTER_CONFIG}."
+esh -o ${RELAY_POSTFIX_MASTER_CONFIG} \
+    ${BF_TEMPLATES}/postfix.master.cf.esh
+    
+bf-debug "Generating ${RELAY_POSTFIX_MAIN_CONFIG}."
 esh -o ${RELAY_POSTFIX_CONFIG} \
-    ${BF_TEMPLATES}/postfix.conf.esh
+    ${BF_TEMPLATES}/postfix.main.cf.esh

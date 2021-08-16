@@ -5,13 +5,16 @@ export BF_E=`basename ${0}`
 
 
 #======================================================================================================================
-# Get Postfix Version.
+# Get versions.
 #======================================================================================================================
 
 cd /tmp
 
 POSTFIX_VERSION=$(cat POSTFIX_VERSION)
 bf-debug "Postfix version ${POSTFIX_VERSION}."
+
+CLAMSMTP_VERSION=$(cat CLAMSMTP_VERSION)
+bf-debug "Clamsmtp version ${CLAMSMTP_VERSION}."
 
 
 #======================================================================================================================
@@ -20,13 +23,11 @@ bf-debug "Postfix version ${POSTFIX_VERSION}."
 
 bf-echo "Installing Postfix v${POSTFIX_VERSION}..."
 apk add --no-cache \
-    postfix=${POSTFIX_VERSION}
+    postfix=${POSTFIX_VERSION} \
+    clamsmtp=${CLAMSMTP_VERSION}
 bf-done
 
 
 #======================================================================================================================
 # Cleanup.
 #======================================================================================================================
-
-bf-debug "Cleaning up default Postfix configuration."
-#rm -rf /etc/postfix/*
