@@ -1,12 +1,12 @@
-#!/usr/bin/with-contenv sh
+#!/bin/sh
 
 set -euo pipefail
 export BF_E=`basename ${0}`
 
 
 #======================================================================================================================
-# Add environment variables.
+# Update virtual map and restart postfix.
 #======================================================================================================================
 
-bf-env "RELAY_POSTFIX_CONFIG" "/etc/postfix/main.cf"
-bf-env "RELAY_POSTFIX_MAP" "/etc/postfix/virtual"
+postmap "${RELAY_POSTFIX_MAP}"
+bf-svc restart postfix
