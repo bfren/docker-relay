@@ -29,4 +29,4 @@ bf-done
 #======================================================================================================================
 
 bf-debug "Cleaning up default Postfix configuration."
-rm -rf /etc/postfix/*
+#rm -rf /etc/postfix/*
