@@ -9,4 +9,4 @@ export BF_E=`basename ${0}`
 #======================================================================================================================
 
 postmap "${RELAY_POSTFIX_MAP}"
-bf-svc restart postfix
+postfix reload
