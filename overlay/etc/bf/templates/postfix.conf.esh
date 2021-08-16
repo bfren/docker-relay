@@ -1,0 +1,62 @@
+#======================================================================================================================
+# General
+#======================================================================================================================
+
+# Log to stdout
+maillog_file = /dev/stdout
+
+# Main domain and hostname
+mydomain = <%= "${RELAY_PRIMARY_DOMAIN}" %>
+myhostname = <%= "${RELAY_HOSTNAME}" %>
+myorigin = $mydomain
+
+# Message size limit
+message_size_limit = <%= "${RELAY_MESSAGE_SIZE_LIMIT}" %>
+
+# Relayed networks
+mynetworks = 127.0.0.1/32 [::1]/128
+
+# Empty alias list to override the configuration variable and disable NIS
+virtual_alias_maps = hash:/etc/postfix/virtual
+
+# Only accept virtual emails
+mydestination =
+
+# Disable local delivery
+local_transport = error: local delivery disabled
+
+
+#======================================================================================================================
+# Restrictions
+#======================================================================================================================
+
+# Delay all rejects until all information can be logged
+smtpd_delay_reject = yes
+
+# Allowed senders are: the user or one of the alias destinations
+smtpd_sender_login_maps = $virtual_alias_maps
+
+# Helo restrictions are specified for smtp only in master.cf
+smtpd_helo_required = yes
+
+# Sender restrictions
+smtpd_sender_restrictions =
+   permit_mynetworks,
+   reject_non_fqdn_sender,
+   reject_unknown_sender_domain,
+   reject_unlisted_sender,
+   reject_sender_login_mismatch,
+   permit
+
+# Recipient restrictions:
+smtpd_recipient_restrictions =
+   reject_unauth_pipelining,
+   reject_non_fqdn_recipient,
+   reject_unknown_recipient_domain,
+   permit_mynetworks,
+   permit
+
+
+#======================================================================================================================
+# Extra Settings
+#======================================================================================================================
