@@ -9,4 +9,4 @@ export BF_E="${PWD##*/}/$(basename ${0})"
 #======================================================================================================================
 
 bf-echo "Starting TCP Listener."
-s6-tcpserver4 0.0.0.0 5000 postfix-reload-listener
+s6-tcpserver4 0.0.0.0 5000 postfix-listener

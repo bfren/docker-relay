@@ -1,6 +1,0 @@
-#!/bin/sh
-while read -r MESSAGE
-do
-    echo 1>&2 "${TCPREMOTEIP}" "${TCPREMOTEPORT}" rx "${MESSAGE}"
-    [[ "${MESSAGE-}" = "reload" ]] && postfix-update
-done

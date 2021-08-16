@@ -1,0 +1,27 @@
+#!/bin/sh
+
+set -euo pipefail
+export BF_E=`basename ${0}`
+
+
+#======================================================================================================================
+# Listen for messages and act accordingly.
+#======================================================================================================================
+
+while read -r MESSAGE
+do
+    echo 1>&2 "${TCPREMOTEIP}" "${TCPREMOTEPORT}" rx "${MESSAGE}"
+
+    case "${MESSAGE}" in
+
+        reload)
+            postfix-update
+            ;;
+
+        *)
+            bf-error "Unknown control action '${MESSAGE}'." "postfix-listener"
+            ;;
+
+    esac
+
+done
