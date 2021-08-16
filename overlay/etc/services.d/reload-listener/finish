@@ -1,12 +1,10 @@
-#!/bin/sh
+#!/usr/bin/with-contenv sh
 
 set -euo pipefail
-export BF_E=`basename ${0}`
 
 
 #======================================================================================================================
-# Update virtual map and reload Postfix.
+# Show helpful log message.
 #======================================================================================================================
 
-postmap "${RELAY_POSTFIX_MAP}"
-postfix reload
+bf-svc-finish -s ${PWD##*/}

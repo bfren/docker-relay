@@ -1,12 +1,12 @@
-#!/bin/sh
+#!/usr/bin/with-contenv sh
 
 set -euo pipefail
-export BF_E=`basename ${0}`
+export BF_E="${PWD##*/}/$(basename ${0})"
 
 
 #======================================================================================================================
-# Update virtual map and reload Postfix.
+# Listen for .
 #======================================================================================================================
 
-postmap "${RELAY_POSTFIX_MAP}"
-postfix reload
+bf-echo "Starting TCP Listener."
+s6-tcpserver4 -v 0.0.0.0 5000 postfix-reload-listener
