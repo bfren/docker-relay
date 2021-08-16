@@ -13,9 +13,6 @@ cd /tmp
 POSTFIX_VERSION=$(cat POSTFIX_VERSION)
 bf-debug "Postfix version ${POSTFIX_VERSION}."
 
-CLAMSMTP_VERSION=$(cat CLAMSMTP_VERSION)
-bf-debug "Clamsmtp version ${CLAMSMTP_VERSION}."
-
 
 #======================================================================================================================
 # Install Postfix and dependencies.
@@ -23,8 +20,7 @@ bf-debug "Clamsmtp version ${CLAMSMTP_VERSION}."
 
 bf-echo "Installing Postfix v${POSTFIX_VERSION}..."
 apk add --no-cache \
-    postfix=${POSTFIX_VERSION} \
-    clamsmtp=${CLAMSMTP_VERSION}
+    postfix=${POSTFIX_VERSION}
 bf-done
 
 
