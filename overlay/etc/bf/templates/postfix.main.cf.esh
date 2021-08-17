@@ -16,8 +16,11 @@ message_size_limit = <%= "${RELAY_MESSAGE_SIZE_LIMIT}" %>
 # Relayed networks
 mynetworks = 127.0.0.1/32 [::1]/128
 
-# Empty alias list to override the configuration variable and disable NIS
+# Path to virtual aliases - defines what gets forwarded where
 virtual_alias_maps = texthash:/etc/postfix/virtual
+
+# Path to generic mapping - enables 'to' address rewriting
+smtp_generic_maps = texthash:/etc/postfix/generic
 
 # Only accept virtual emails
 mydestination =
