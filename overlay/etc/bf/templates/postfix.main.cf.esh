@@ -2,6 +2,7 @@
 # General
 #======================================================================================================================
 
+# Disable backwards compatibility
 compatibility_level = 3.6
 
 # Log to stdout
