@@ -1,4 +1,4 @@
 /usr/local/bin/postfix-* false root:root 0500 0500
 /usr/local/bin/relay-* false root:root 0500 0500
-/etc/postfix/generic false root:root 0500
-/etc/postfix/virtual false root:root 0500
+/etc/postfix/generic false root:root 0600
+/etc/postfix/virtual false root:root 0600
