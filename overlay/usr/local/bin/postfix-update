@@ -8,5 +8,5 @@ export BF_E=`basename ${0}`
 # Update virtual map and reload Postfix.
 #======================================================================================================================
 
-postmap "${RELAY_POSTFIX_MAP}"
+postmap "${RELAY_POSTFIX_VIRTUAL_MAP}"
 postfix reload
