@@ -17,10 +17,10 @@ message_size_limit = <%= "${RELAY_MESSAGE_SIZE_LIMIT}" %>
 mynetworks = 127.0.0.1/32 [::1]/128
 
 # Path to virtual aliases - defines what gets forwarded where
-virtual_alias_maps = texthash:/etc/postfix/virtual
+virtual_alias_maps = texthash:<%= "${RELAY_POSTFIX_VIRTUAL_MAP}" %>
 
 # Path to generic mapping - enables 'to' address rewriting
-smtp_generic_maps = texthash:/etc/postfix/generic
+smtp_generic_maps = texthash:<%= "${RELAY_POSTFIX_GENERIC_MAP}" %>
 
 # Only accept virtual emails
 mydestination =

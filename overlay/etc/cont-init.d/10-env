@@ -10,8 +10,5 @@ export BF_E=`basename ${0}`
 
 bf-env "RELAY_POSTFIX_MASTER_CONFIG" "/etc/postfix/master.cf"
 bf-env "RELAY_POSTFIX_MAIN_CONFIG" "/etc/postfix/main.cf"
-bf-env "RELAY_POSTFIX_MAP" "/etc/postfix/virtual"
-
-bf-env "RELAY_CLAMSMTP_CONFIG" "/etc/clamsmtp/clamsmtp.conf"
-
-bf-env "RELAY_GROSS_CONFIG" "/etc/gross/grossd.conf"
+bf-env "RELAY_POSTFIX_GENERIC_MAP" "/etc/postfix/generic"
+bf-env "RELAY_POSTFIX_VIRTUAL_MAP" "/etc/postfix/virtual"
