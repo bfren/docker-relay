@@ -18,5 +18,5 @@ esh -o ${RELAY_POSTFIX_MASTER_CONFIG} \
     ${BF_TEMPLATES}/postfix.master.cf.esh
     
 bf-debug "Generating ${RELAY_POSTFIX_MAIN_CONFIG}."
-esh -o ${RELAY_POSTFIX_CONFIG} \
+esh -o ${RELAY_POSTFIX_MAIN_CONFIG} \
     ${BF_TEMPLATES}/postfix.main.cf.esh
