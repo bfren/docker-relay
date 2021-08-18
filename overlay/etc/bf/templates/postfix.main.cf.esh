@@ -64,5 +64,24 @@ smtpd_recipient_restrictions =
 
 
 #======================================================================================================================
-# Extra Settings
+# SSL
 #======================================================================================================================
+
+smtpd_tls_cert_file = /path/to/your/server.crt
+smtpd_tls_key_file = /path/to/your/privatekey.key
+
+# TLS activation
+smtpd_tls_security_level = may	
+
+# Additional settings
+smtpd_tls_received_header = yes
+smtpd_tls_exclude_ciphers = NULL, aNULL, RC4, 3DES, eNULL, DHE_EXPORT
+smtpd_tls_mandatory_ciphers = high
+smtpd_tls_ciphers = medium
+smtpd_tls_protocols = !SSLv2, !SSLv3
+
+https://upcloud.com/community/tutorials/secure-postfix-using-lets-encrypt/
+
+https://www.mailgun.com/blog/which-smtp-port-understanding-ports-25-465-587/
+
+http://www.postfix.org/TLS_README.html#server_enable

@@ -1,7 +1,6 @@
 FROM bfren/alpine-s6:alpine3.14-2.2.4
 
-EXPOSE 587
-EXPOSE 5000
+EXPOSE 25 587 5000
 
 ENV \
     # primary relay domain
