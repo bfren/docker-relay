@@ -1,4 +1,4 @@
-FROM bfren/alpine-s6:alpine3.14-2.2.6
+FROM bfren/alpine-s6:alpine3.14-2.2.8
 
 EXPOSE 25 587 5000
 
