@@ -14,9 +14,9 @@ export BF_E=`basename ${0}`
 
 # generate config from the templates
 bf-debug "Generating ${RELAY_POSTFIX_MASTER_CONFIG}."
-esh -o ${RELAY_POSTFIX_MASTER_CONFIG} \
-    ${BF_TEMPLATES}/postfix.master.cf.esh
-    
+bf-esh ${BF_TEMPLATES}/postfix.master.cf.esh ${RELAY_POSTFIX_MASTER_CONFIG}
+
+
 bf-debug "Generating ${RELAY_POSTFIX_MAIN_CONFIG}."
-esh -o ${RELAY_POSTFIX_MAIN_CONFIG} \
-    ${BF_TEMPLATES}/postfix.main.cf.esh
+bf-esh ${BF_TEMPLATES}/postfix.main.cf.esh ${RELAY_POSTFIX_MAIN_CONFIG}
+
