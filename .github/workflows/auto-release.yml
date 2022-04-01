@@ -7,9 +7,9 @@ on:
 jobs:
   create-release:
     runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
     steps:
     -
-      if: github.event.pull_request.merged == true
       name: Get Pull Request Title
       run: echo "PR_TITLE=${{ github.event.pull_request.title }}" >> $GITHUB_ENV
       shell: bash
